@@ -12,6 +12,9 @@ stage.addChild(gameView);
 
 var circleArr = [[],[],[],[],[],[],[],[],[]];
 var currentCat;
+
+var steps;
+
 var MOVE_NONE = -1, MOVE_LEFT = 0, MOVE_UP_LEFT=1, MOVE_UP_RIGHT= 2, MOVE_RIGHT= 3,MOVE_DOWN_RIGHT= 4,MOVE_DOWN_LEFT = 5;
 
 function  getMoveDir(cat){
@@ -20,7 +23,9 @@ function  getMoveDir(cat){
 
     //left
     var can = true;
-    for(var x = cat.indexX;x>0;x--){
+
+    for(var x = cat.indexX;x>=0;x--){
+
         if(circleArr[x][cat.indexY].getCircleType() == Circle.TYPE_SELECTED){
             can = false;
             distanceMap[MOVE_LEFT] = cat.indexX-x;
@@ -70,12 +75,13 @@ function  getMoveDir(cat){
         }
     }
     if(can){
-        return MOVE_UP_LEFT;
+        return MOVE_UP_RIGHT;
     }
 
     //right
     can = true;
-    for(var x = cat.indexX;x<8;x++){
+
+    for(var x = cat.indexX;x<=8;x++){
         if(circleArr[x][cat.indexY].getCircleType() == Circle.TYPE_SELECTED){
             can = false;
             distanceMap[MOVE_RIGHT] = x-cat.indexX;
@@ -135,7 +141,7 @@ function  getMoveDir(cat){
             maxDir = dir;
         }
     }
-    if(maxValue > -1){
+    if(maxValue > 1){
         return maxDir;
     }else{
         return MOVE_NONE;
@@ -145,11 +151,14 @@ function  getMoveDir(cat){
 function circleClicked(event){
     if(event.target.getCircleType() != Circle.TYPE_CAT){
         event.target.setCircleType(Circle.TYPE_SELECTED);
+        steps ++;
+        document.getElementById("count").innerHTML = "Current Steps:" + steps
     }else{
         return;
     }
     if(currentCat.indexX == 0 || currentCat.indexX == 8 || currentCat.indexY == 0 ||  currentCat.indexY == 8){
-        alert("You Lose!");
+        //alert("You Lose!");
+        showdiv("You Lose!");
         return;
     }
 
@@ -186,10 +195,13 @@ function circleClicked(event){
             currentCat.setCircleType(Circle.TYPE_CAT);
             break;
         default :
-            alert("You win!");
+
+//            alert("You win!");
+            showdiv("You Win!");
     }
 }
 function addCircles() {
+    steps = 0;
     for(var indexY=0;indexY<9;indexY++){
         for(var indexX=0; indexX<9;indexX++ ){
             var c = new Circle();
