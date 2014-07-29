@@ -11,13 +11,12 @@
 <div id="bg"></div>
 <div id="show">
     <p id="caution"></p>
-    <!--<input id="btn_close" type="button" value="Play Again" onclick="hidediv();"/>-->
     <a href="#" onclick="hidediv()" class="css_btn_class">play again !</a>
 </div>
 <p id="count">Current Steps:0</p>
 <p id="best">Best Steps:0</p>
 <a id="btn_reload" href="#" onclick="initCircles()" class="css_btn_reroll">reload !</a>
-<canvas width="800px" height="800px" id="gameView"></canvas>
+<canvas width="530px" height="520px" id="gameView"></canvas>
 <script src="js/app.js"></script>
 <a id="link" href="https://github.com/EpsilonX/crazycat">Source Code in Github: https://github.com/EpsilonX/crazycat</a>
 <script language="javascript" type="text/javascript">
@@ -29,7 +28,6 @@
     function hidediv() {
         document.getElementById("bg").style.display ='none';
         document.getElementById("show").style.display ='none';
-        //location.reload();
         initCircles();
     }
 </script>
