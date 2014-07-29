@@ -22,6 +22,8 @@ var currentCat;
 
 var steps;
 
+var bestSteps = 100;
+
 var MOVE_NONE = -1, MOVE_LEFT = 0, MOVE_UP_LEFT=1, MOVE_UP_RIGHT= 2, MOVE_RIGHT= 3,MOVE_DOWN_RIGHT= 4,MOVE_DOWN_LEFT = 5;
 
 function  getMoveDir(cat){
@@ -159,7 +161,7 @@ function circleClicked(event){
     if(event.target.getCircleType() == Circle.TYPE_UNSELECTED){
         event.target.setCircleType(Circle.TYPE_SELECTED);
         steps ++;
-        document.getElementById("count").innerHTML = "Current Steps:" + steps
+        document.getElementById("count").innerHTML = "Current Steps:" + steps;
     }else{
         return;
     }
@@ -205,12 +207,17 @@ function circleClicked(event){
 
 //            alert("You win!");
             showdiv("You Win!");
+            if(bestSteps > steps){
+                bestSteps = steps;
+                document.getElementById("best").innerHTML = "Best Steps: " + bestSteps;
+            }
     }
     img.x = currentCat.x+53;
     img.y = currentCat.y+50;
 }
-function addCircles() {
+function initCircles() {
     steps = 0;
+    document.getElementById("count").innerHTML = "Current Steps: " + steps;
     for(var indexY=0;indexY<9;indexY++){
         for(var indexX=0; indexX<9;indexX++ ){
             var c = new Circle();
@@ -233,5 +240,5 @@ function addCircles() {
     }
 }
 
-addCircles();
+initCircles();
 
