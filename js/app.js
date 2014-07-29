@@ -10,6 +10,13 @@ gameView.x = 30;
 gameView.y = 30;
 stage.addChild(gameView);
 
+var img = new createjs.Bitmap("img/mysmall.png");
+img.x = 50;
+img.y = 50;
+img.regX = 50;
+img.regY = 50;
+stage.addChild(img);
+
 var circleArr = [[],[],[],[],[],[],[],[],[]];
 var currentCat;
 
@@ -199,6 +206,8 @@ function circleClicked(event){
 //            alert("You win!");
             showdiv("You Win!");
     }
+    img.x = currentCat.x+53;
+    img.y = currentCat.y+50;
 }
 function addCircles() {
     steps = 0;
@@ -214,6 +223,8 @@ function addCircles() {
             if(indexX==4&&indexY==4){
                 c.setCircleType(Circle.TYPE_CAT);
                 currentCat = c;
+                img.x = c.x+53;
+                img.y = c.y+50;
             }else if(Math.random()<0.1){
                 c.setCircleType(Circle.TYPE_SELECTED);
             }
