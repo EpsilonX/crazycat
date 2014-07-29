@@ -8,24 +8,23 @@
     background: #dff2dc;
 }
 
-#count {
+#top {
     position: absolute;
-    left:30%;
+    left:32%;
+    top:5%;
     font-weight: bold;
     font-size: 20px;
+}
+#count {
+    display: inline;
 }
 
 #best {
-    position: absolute;
-    left:52%;
-    font-weight: bold;
-    font-size: 20px;
+    display: inline;
 }
 
 #btn_reload{
-    position: absolute;
-    left:43%;
-    top:2%;
+    display: inline;
 }
 
 #bg{

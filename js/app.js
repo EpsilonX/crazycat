@@ -161,7 +161,7 @@ function circleClicked(event){
     if(event.target.getCircleType() == Circle.TYPE_UNSELECTED){
         event.target.setCircleType(Circle.TYPE_SELECTED);
         steps ++;
-        document.getElementById("count").innerHTML = "Current Steps:" + steps;
+        document.getElementById("count").innerHTML = "Current Steps: " + steps;
     }else{
         return;
     }
