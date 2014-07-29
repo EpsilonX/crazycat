@@ -19,11 +19,12 @@
         }
     </script>
 </head>
-<body>
+<body id="body">
 <div id="bg"></div>
 <div id="show">
     <p id="caution"></p>
-    <input id="btn_close" type="button" value="Play Again" onclick="hidediv();"/>
+    <!--<input id="btn_close" type="button" value="Play Again" onclick="hidediv();"/>-->
+    <a href="#" onclick="hidediv()" class="css_btn_class">play again !</a>
 </div>
 <p id="count">Current Steps:0</p>
 <canvas width="800px" height="800px" id="gameView"></canvas>
