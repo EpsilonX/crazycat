@@ -166,7 +166,6 @@ function circleClicked(event){
         return;
     }
     if(currentCat.indexX == 0 || currentCat.indexX == 8 || currentCat.indexY == 0 ||  currentCat.indexY == 8){
-        //alert("You Lose!");
         showdiv("You Lose!");
         return;
     }
@@ -205,7 +204,6 @@ function circleClicked(event){
             break;
         default :
 
-//            alert("You win!");
             showdiv("You Win!");
             if(bestSteps > steps){
                 bestSteps = steps;
